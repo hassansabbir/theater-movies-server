@@ -39,6 +39,12 @@ async function run() {
       res.send(result);
     });
 
+    //post request
+    app.post("/addAMovie", async (req, res) => {
+      const result = await moviesCollection.insertOne(req.body);
+      res.send(result);
+    });
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
